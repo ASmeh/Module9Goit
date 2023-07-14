@@ -20,8 +20,21 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public void add(E value) {
+
         Node<E> newNode = new Node<>(tail, null, value);
-        tail.next = newNode;
+        if (tail == null && head == null) {
+            tail = newNode;
+            head = newNode;
+        } else if (size == 1) {
+            tail = newNode;
+            head.next = tail;
+            tail.prev = head;
+        } else {
+            Node<E> oldTail = tail;
+            oldTail.next = newNode;
+            tail = newNode;
+        }
+
         ++size;
     }
 
@@ -30,7 +43,17 @@ public class MyLinkedList<E> implements MyList<E> {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
-
+        Node<E> prev = null;
+        Node<E> cur = head;
+        int counter = 0;
+        while (counter != index) {
+            prev = cur;
+            cur = cur.next;
+        }
+        prev.next = cur.next;
+        cur.prev = prev;
+        cur = null;
+        --size;
     }
 
     @Override
@@ -43,6 +66,8 @@ public class MyLinkedList<E> implements MyList<E> {
             cur.next = null;
             cur = tmpNext;
         }
+        head = tail = null;
+        size = 0;
     }
 
     @Override
@@ -60,6 +85,15 @@ public class MyLinkedList<E> implements MyList<E> {
             cur = cur.next;
         }
         return cur;
+    }
+
+    public void printLinkedList() {
+        Node<E> cur = head;
+        while (cur != null) {
+            System.out.print(cur.value + " ");
+            cur = cur.next;
+        }
+        System.out.println();
     }
 
 }

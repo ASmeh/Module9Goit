@@ -1,5 +1,5 @@
-public interface MyList {
-    void add(Object value);
+public interface MyList<E> {
+    void add(E value);
 
     void remove(int index);
 
@@ -8,4 +8,5 @@ public interface MyList {
     int size();
 
     Object get(int index);
+
 }

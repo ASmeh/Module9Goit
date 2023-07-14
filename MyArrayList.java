@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Collection;
 
-public class MyArrayList<E> implements MyList {
+public class MyArrayList<E> implements MyList<E> {
     private int size = 0;
 
     Object[] elements = {};
