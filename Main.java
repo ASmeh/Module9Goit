@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,5 +18,13 @@ public class Main {
             myLinkedList.add(i);
         }
         ((MyLinkedList<Integer>) myLinkedList).printLinkedList();
+        // TODO:test mor myLinkedList
+
+        MyQueue<Integer> myQueue = new MyLinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            myQueue.add(i);
+        }
+        ((MyLinkedList<Integer>) myQueue).printLinkedList();
+
     }
 }

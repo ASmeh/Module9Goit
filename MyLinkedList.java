@@ -1,6 +1,6 @@
 import org.w3c.dom.Node;
 
-public class MyLinkedList<E> implements MyList<E> {
+public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
 
     private Node<E> head;
     private Node<E> tail;
@@ -19,9 +19,9 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     @Override
-    public void add(E value) {
+    public void add(Object value) {
 
-        Node<E> newNode = new Node<>(tail, null, value);
+        Node<E> newNode = new Node<>(tail, null, (E) value);
         if (tail == null && head == null) {
             tail = newNode;
             head = newNode;
@@ -94,6 +94,25 @@ public class MyLinkedList<E> implements MyList<E> {
             cur = cur.next;
         }
         System.out.println();
+    }
+
+    @Override
+    public Object peek() {
+        return head;
+    }
+
+    @Override
+    public Object poll() {
+        if (size == 1) {
+            Object returnObj = head;
+            head = tail = null;
+            return returnObj;
+        }
+        Object returnObj = head;
+        head.next.prev = null;
+        head.next = null;
+        head = null;
+        return returnObj;
     }
 
 }

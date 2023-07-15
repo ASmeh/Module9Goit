@@ -7,7 +7,7 @@ public class MyArrayList<E> implements MyList<E> {
     Object[] elements = {};
 
     @Override
-    public void add(E value) {
+    public void add(Object value) {
         if (elements.length == 0) {
             elements = new Object[1];
             elements[0] = value;
