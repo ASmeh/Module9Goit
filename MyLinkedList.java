@@ -6,7 +6,7 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
     private Node<E> tail;
     private int size = 0;
 
-    public class Node<E> {
+    private class Node<E> {
         Node<E> prev;
         Node<E> next;
         E value;
@@ -15,6 +15,13 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
             this.prev = prev;
             this.next = next;
             this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "value=" + value +
+                    '}';
         }
     }
 
@@ -49,6 +56,7 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
         while (counter != index) {
             prev = cur;
             cur = cur.next;
+            ++counter;
         }
         prev.next = cur.next;
         cur.prev = prev;
@@ -81,7 +89,7 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
             throw new IndexOutOfBoundsException();
         }
         Node<E> cur = head;
-        for (int i = 0; i <= index; i++) {
+        for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
         return cur;
@@ -110,8 +118,11 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
         }
         Object returnObj = head;
         head.next.prev = null;
-        head.next = null;
-        head = null;
+        Node<E> tmpHead =head;
+        head = head.next;
+        tmpHead.next=null;
+        tmpHead.prev=null;
+        --size;
         return returnObj;
     }
 
