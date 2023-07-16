@@ -2,10 +2,6 @@ import org.w3c.dom.Node;
 
 public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
 
-    private Node<E> head;
-    private Node<E> tail;
-    private int size = 0;
-
     private class Node<E> {
         Node<E> prev;
         Node<E> next;
@@ -125,5 +121,7 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
         --size;
         return returnObj;
     }
-
+    private Node<E> head;
+    private Node<E> tail;
+    private int size = 0;
 }

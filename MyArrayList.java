@@ -2,9 +2,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class MyArrayList<E> implements MyList<E> {
-    private int size = 0;
 
-    Object[] elements = {};
 
     @Override
     public void add(Object value) {
@@ -61,5 +59,7 @@ public class MyArrayList<E> implements MyList<E> {
     public String toString() {
         return "MyArrayList [elements=" + Arrays.toString(elements) + "]";
     }
+    private int size = 0;
 
+    private Object[] elements = {};
 }

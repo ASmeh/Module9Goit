@@ -3,10 +3,6 @@ import java.util.Arrays;
 import org.w3c.dom.Node;
 
 public class MyStack<E> implements MyList<E> {
-    private int size = 0;
-
-    private Object[] elements = {};
-
     public void push(Object value) {
         Object[] newElements = Arrays.copyOf(elements, elements.length + 1);
         for (int i = 0; i < elements.length; i++) {
@@ -80,4 +76,7 @@ public class MyStack<E> implements MyList<E> {
         }
         return elements[index];
     }
+    private int size = 0;
+
+    private Object[] elements = {};
 }

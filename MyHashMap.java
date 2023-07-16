@@ -1,9 +1,6 @@
 import java.util.Objects;
 
 public class MyHashMap<K, V> implements MyMap<K, V>,Printable {
-
-
-
     private class Node<K, V> {
         // Node<K, V> next;
         Object key;
@@ -44,8 +41,7 @@ public class MyHashMap<K, V> implements MyMap<K, V>,Printable {
         }
     }
 
-    private Node<K, V>[] table = null;
-    private int size = 0;
+
 
     @Override
     public void put(Object key, Object value) {
@@ -123,5 +119,6 @@ public class MyHashMap<K, V> implements MyMap<K, V>,Printable {
             System.out.println("key:"+node.key+" value:"+node.value);
         }
     }
-
+    private Node<K, V>[] table = null;
+    private int size = 0;
 }
