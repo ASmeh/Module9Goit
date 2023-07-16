@@ -51,6 +51,9 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public Object get(int index) {
+        if(index<0 || index>=elements.length){
+            throw new IndexOutOfBoundsException();
+        }
         return elements[index];
     }
 
