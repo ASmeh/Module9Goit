@@ -36,18 +36,18 @@ public class Main {
         System.out.println(myLinkedList.size());
         ////////////////////////////////
         System.out.println("MyQueue test:");
-        MyQueue<Integer> myQueue = new MyLinkedList<>();
+        MyQueue<Integer> myQueue = new MyQueueList<>();
         for (int i = 0; i < 10; i++) {
             myQueue.add(i);
         }
-        ((MyLinkedList<Integer>) myQueue).printLinkedList();
+        ((MyQueueList<Integer>) myQueue).printQueue();
         // TODO: test more Queue
         System.out.println("myQueue size:"+myQueue.size());
         System.out.println(myQueue.peek());
         System.out.println("myQueue size:"+myQueue.size());
         System.out.println(myQueue.poll());
         System.out.println("myQueue size:"+myQueue.size());
-        ((MyLinkedList<Integer>) myQueue).printLinkedList();
+        ((MyQueueList<Integer>) myQueue).printQueue();
 
         ///////////////////////////////
         System.out.println("MyStack test:");
