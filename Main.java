@@ -57,14 +57,25 @@ public class Main {
         }
         System.out.println(myStack);
         // TODO: test more myStack
+        myStack.remove(0);
+        System.out.println(myStack);
+        System.out.println(myStack.peek());
+        System.out.println("Stack size:" + myStack.size());
+        System.out.println(myStack.pop());
+        System.out.println("Stack size:" + myStack.size());
 
         ////////////////////////////////
         System.out.println("MyHashMap  test:");
-        Map<String, Integer> map = new HashMap<>();
         MyMap<String, Integer> map2 = new MyHashMap<>();
         for (int i = 0; i < 10; i++) {
             map2.put("qwerty" + i, i);
         }
+        ((MyHashMap<String, Integer>) map2).print();
+        // TODO: test more MyHashMap
+        map2.put("asdf",20);
+        ((MyHashMap<String, Integer>) map2).print();
+        System.out.println("asdf val:" + map2.get("asdf"));
+        map2.remove("asdf");
         ((MyHashMap<String, Integer>) map2).print();
     }
 }

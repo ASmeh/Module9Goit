@@ -14,6 +14,7 @@ public class MyStack<E> implements MyList<E> {
         }
         newElements[elements.length] = value;
         elements = newElements;
+        ++size;
     }
 
     public void remove(int index) {
@@ -25,6 +26,7 @@ public class MyStack<E> implements MyList<E> {
                 newElemnts[j++] = elements[i];
             }
         }
+        --size;
         elements = newElemnts;
     }
 
@@ -59,6 +61,7 @@ public class MyStack<E> implements MyList<E> {
         if (elements.length == 0) {
             elements = new Object[1];
             elements[0] = value;
+
         } else {
             Object[] newElements = new Object[elements.length + 1];
             for (int i = 0; i < elements.length; i++) {
@@ -67,6 +70,7 @@ public class MyStack<E> implements MyList<E> {
             newElements[elements.length] = value;
             elements = newElements;
         }
+        ++size;
     }
 
     @Override

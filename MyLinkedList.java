@@ -112,7 +112,7 @@ public class MyLinkedList<E> implements MyList<E>, MyQueue<E> {
     @Override
     public Object poll() {
         if (size == 1) {
-            Object returnObj = head;
+            Object returnObj = peek();
             head = tail = null;
             return returnObj;
         }

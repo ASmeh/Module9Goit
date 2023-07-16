@@ -35,6 +35,13 @@ public class MyHashMap<K, V> implements MyMap<K, V>,Printable {
             return false;
         }
 
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "key=" + key +
+                    ", value=" + value +
+                    '}';
+        }
     }
 
     private Node<K, V>[] table = null;
@@ -75,13 +82,14 @@ public class MyHashMap<K, V> implements MyMap<K, V>,Printable {
                 table[i] = null;
             }
         }
-        Node<K, V>[] newTable = (Node<K, V>[]) new Object[table.length - 1];
+        Node<K, V>[] newTable = new Node[table.length-1];
         int j = 0;
         for (int i = 0; i < table.length; i++) {
             if (table[i] != null) {
                 newTable[j++] = table[i];
             }
         }
+        table = newTable;
     }
 
     @Override
